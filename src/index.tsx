@@ -1,17 +1,15 @@
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
-import type { FC } from 'hono/jsx'
 import { z } from 'zod'
+import { Layout } from './layout'
 
-const app = new Hono()
-
-const Layout: FC = (props) => {
-  return (
-    <html>
-      <body>{props.children}</body>
-    </html>
-  )
+type Bindings = {
+  DB: D1Database
 }
+
+const app = new Hono<{
+  Bindings: Bindings
+}>()
 
 app.get('/', (c) => {
   return c.html(
@@ -50,5 +48,17 @@ app.post(
     return c.redirect('/')
   },
 )
+
+app.get('/login', (c) => {
+  return c.html(
+    <Layout>
+      <form method="post">
+        <input name="email" type="email" />
+        <input name="password" type="password" />
+        <button type="submit">login</button>
+      </form>
+    </Layout>,
+  )
+})
 
 export default app

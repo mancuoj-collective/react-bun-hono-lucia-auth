@@ -1,21 +1,7 @@
 name = "react-hono-cloudflare-lucia-auth"
 compatibility_date = "2023-12-01"
 
-# [vars]
-# MY_VAR = "my-variable"
-
-# [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-# [[r2_buckets]]
-# binding = "MY_BUCKET"
-# bucket_name = "my-bucket"
-
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "my-database"
-# database_id = ""
-
-# [ai]
-# binding = "AI"
+[[d1_databases]]
+binding = "DB"
+database_name = "hono-lucia-auth"
+database_id = "1c29e31d-3d9a-4af8-b971-911477ac79fc"
