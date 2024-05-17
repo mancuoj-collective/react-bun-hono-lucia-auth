@@ -1,5 +1,7 @@
+import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import type { FC } from 'hono/jsx'
+import { z } from 'zod'
 
 const app = new Hono()
 
@@ -32,5 +34,21 @@ app.get('/signup', (c) => {
     </Layout>,
   )
 })
+
+app.post(
+  '/signup',
+  zValidator(
+    'form',
+    z.object({
+      email: z.string().email(),
+      password: z.string().min(1),
+    }),
+  ),
+  (c) => {
+    const { email, password } = c.req.valid('form')
+    console.log(email, password)
+    return c.redirect('/')
+  },
+)
 
 export default app
