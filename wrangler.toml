@@ -1,7 +1,0 @@
-name = "react-hono-cloudflare-lucia-auth"
-compatibility_date = "2023-12-01"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "hono-lucia-auth"
-database_id = "1c29e31d-3d9a-4af8-b971-911477ac79fc"
