@@ -1,9 +1,12 @@
 import { Hono } from 'hono'
+import { db } from './db'
+import { movies } from './db/schema'
 
 const app = new Hono()
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
+app.get('/', async (c) => {
+  const result = await db.select().from(movies)
+  return c.json(result)
 })
 
 export default {
