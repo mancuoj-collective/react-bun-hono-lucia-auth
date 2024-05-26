@@ -1,11 +1,5 @@
-To install dependencies:
-```sh
-bun install
-```
+# React Hono Lucia Auth
 
-To run:
-```sh
-bun run dev
-```
-
-open http://localhost:3000
+- https://hono.dev/getting-started/bun
+- https://bun.sh/guides/ecosystem/drizzle
+- https://lucia-auth.com/database/drizzle
